@@ -1,6 +1,7 @@
 package com.nordstrom.app.astefviewmodel.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,14 @@ class ResultFragment : Fragment() {
         filter.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_resultFilterFragment)
         }
+
+        Log.d("ABC", "ResultFragment onViewCreated")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d("ABC", "ResultFragment onResume")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
