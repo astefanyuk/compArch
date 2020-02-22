@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.nordstrom.app.astefviewmodel.R
+import kotlinx.android.synthetic.main.result_fragment.*
 
 class ResultFragment : Fragment() {
 
@@ -24,6 +26,9 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        filter.setOnClickListener {
+            findNavController().navigate(R.id.action_resultFragment_to_resultFilterFragment)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -31,5 +36,6 @@ class ResultFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ResultFragmentViewModel::class.java)
         // TODO: Use the ViewModel
     }
+
 
 }
