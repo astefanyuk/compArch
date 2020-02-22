@@ -8,24 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.nordstrom.app.astefviewmodel.R
 
-class WriteReviewFragment : Fragment() {
+class ResultFilterSelectFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = WriteReviewFragment()
-    }
-
-    private lateinit var viewModel: WriteReviewViewModel
+    private lateinit var viewModel: ResultFilterSelectFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.result_filter_select_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(WriteReviewViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ResultFilterSelectFragmentViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

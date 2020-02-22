@@ -2,6 +2,6 @@ package com.nordstrom.app.astefviewmodel.ui.main
 
 import androidx.lifecycle.ViewModel
 
-class ProductDetailsViewModel : ViewModel() {
+class ResultFragmentViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

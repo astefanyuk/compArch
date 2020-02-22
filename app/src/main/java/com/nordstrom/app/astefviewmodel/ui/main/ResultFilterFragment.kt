@@ -8,24 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.nordstrom.app.astefviewmodel.R
 
-class ProductDetailsFragment : Fragment() {
+class ResultFilterFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ProductDetailsFragment()
-    }
-
-    private lateinit var viewModel: ProductDetailsViewModel
+    private lateinit var viewModel: ResultFilterFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.result_filter_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ProductDetailsViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ResultFilterFragmentViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
