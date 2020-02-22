@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
 
         message.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ResultFragment())
+                .replace(R.id.container, ResultContainerFragment())
                 .commitNow()
         }
 
