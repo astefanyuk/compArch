@@ -1,5 +1,6 @@
 package com.nordstrom.app.astefviewmodel.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.*
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.nordstrom.app.astefviewmodel.R
@@ -27,11 +28,20 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModelStoreOwner = (parentFragment ?: activity) as ViewModelStoreOwner
+        viewModel = ViewModelProvider(viewModelStoreOwner).get(ResultFragmentViewModel::class.java)
+
+        // TODO: Use the ViewModel
+
+        viewModel.someText.observe(this as LifecycleOwner, Observer {
+            Log.d("ABC", "ResultFragment $it")
+        })
+
         filter.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_resultFilterFragment)
         }
 
-        Log.d("ABC", "ResultFragment onViewCreated")
+        Log.d("ABC", "ResultFragment onViewCreated. Value=" + viewModel.someText.value)
     }
 
     override fun onResume() {
@@ -40,11 +50,6 @@ class ResultFragment : Fragment() {
         Log.d("ABC", "ResultFragment onResume")
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ResultFragmentViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 
 }
